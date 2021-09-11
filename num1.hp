@@ -1,9 +1,12 @@
 %%HP: T(3)A(R)F(.);
+@ For 48/49/50G calculator
+@ Plays the intro to "We are Number One" at ~168bpm
+@ Size: 527
 \<< 349.23 .5 BEEP
     523.25 .2 BEEP
     493.88 .1 BEEP
     523.25 .1 BEEP
-    493.88 1. BEEP
+    493.88 .1 BEEP
     523.25 .1 BEEP
     493.88 .2 BEEP
     523.25 .2 BEEP
@@ -16,9 +19,9 @@
     415.3 .36 BEEP
     554.37 .36 BEEP
     622.25 .4 BEEP
-    523.25 .4 BEEP
-    554.37 .4 BEEP
-    523.25 .4 BEEP
-    554.37 .4 BEEP
+    523.25 .2 BEEP
+    554.37 .2 BEEP
+    523.25 .2 BEEP
+    554.37 .2 BEEP
     523.25 .4 BEEP
 \>>
