@@ -13,13 +13,14 @@ char* pad(char string[])
 	int messLen = strlen(string);
 
 	int i;
-	for (i = 0; i < messLen - 1; i++)
+	for (i = 0; i < messLen; i++)
 	{
-		sprintf(newChar, "%d|", string[i]);
+		sprintf(newChar, "%d", string[i]);
+		int newInt = atoi(newChar);
+		newInt += 100;
+		sprintf(newChar, "%d", newInt);
 		strcat(buf, newChar);
 	}
-	sprintf(newChar, "%d", string[i]);
-	strcat(buf, newChar);
 
 	return(buf);
 }
