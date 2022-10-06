@@ -24,6 +24,7 @@ char* pad(char string[])
 	return(buf);
 }
 
+// Encrypts a string with encryption exponent and encryption modulus.
 char* rsaencrypt(char string[], long encrexp, long encrmod)
 {
 	char newChar[128];
@@ -47,5 +48,6 @@ int main(void)
 	encrmod = sat_pop_real();
 
 	sat_stack_push_string(rsaencrypt(ptr, encrexp, encrmod));
+	free(ptr);
 	return(0);
 }
