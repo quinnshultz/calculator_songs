@@ -6,7 +6,6 @@
 char buf[128];
 
 // Pads input with ASCII codons
-// Instead of adding 100, I am deliminating with pipes ("|")
 char* pad(char string[])
 {
 	char newChar[3];
@@ -25,11 +24,28 @@ char* pad(char string[])
 	return(buf);
 }
 
+char* rsaencrypt(char string[], long encrexp, long encrmod)
+{
+	char newChar[128];
+
+	int newInt = atoi(pad(string));
+	newInt = newInt ^ encrexp % encrmod;	// Do the encryption!
+	sprintf(newChar, "%d", newInt);
+	sprintf(buf, "%s", newChar);
+	
+	return(buf);
+}
+
 int main(void)
 {
 	char* ptr;
+	long encrexp;
+	long encrmod;
 
 	ptr = sat_stack_pop_string_alloc();
-	sat_stack_push_string(pad(ptr));
+	encrexp = sat_pop_real();
+	encrmod = sat_pop_real();
+
+	sat_stack_push_string(rsaencrypt(ptr, encrexp, encrmod));
 	return(0);
 }
