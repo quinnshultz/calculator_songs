@@ -19,35 +19,22 @@ char* pad(char string[])
 		newInt += 100;
 		sprintf(newChar, "%d", newInt);
 		strcat(buf, newChar);
+
+		// Leave an out
+		if (keyb_isAnyKeyPressed())
+			break;
 	}
 
-	return(buf);
-}
-
-// Encrypts a string with encryption exponent and encryption modulus.
-char* rsaencrypt(char string[], long encrexp, long encrmod)
-{
-	char newChar[128];
-
-	int newInt = atoi(pad(string));
-	newInt = newInt ^ encrexp % encrmod;	// Do the encryption!
-	sprintf(newChar, "%d", newInt);
-	sprintf(buf, "%s", newChar);
-	
 	return(buf);
 }
 
 int main(void)
 {
 	char* ptr;
-	long encrexp;
-	long encrmod;
 
 	ptr = sat_stack_pop_string_alloc();
-	encrexp = sat_pop_real();
-	encrmod = sat_pop_real();
 
-	sat_stack_push_string(rsaencrypt(ptr, encrexp, encrmod));
+	sat_stack_push_string(pad(ptr));
 	free(ptr);
 	return(0);
 }

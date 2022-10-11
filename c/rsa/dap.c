@@ -20,6 +20,10 @@ char* depad(char string[])
 		char c2[2];
 		sprintf(c2, "%c", c);
 		strcat(buf, c2);
+
+		// Leave an out
+		if (keyb_isAnyKeyPressed())
+			break;
 	}
 
 	return(buf);
