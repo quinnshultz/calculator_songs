@@ -118,21 +118,38 @@ int main()
         if (keyb_isLeft() && selection > 0)
         {
             selection--;
+            // Is it really necessary to redraw the whole screen every time?
+            hpg_clear();
+            hpg_blit(background, 0, 0, 131, 80, hpg_stdscreen, 0, 0);
+            hpg_blit(cursor, 0, 0, 16, 16, hpg_stdscreen, (35 * selection) + 10, 65);
         }
         else if (keyb_isRight() && selection < 3)
         {
             selection++;
+            hpg_clear();
+            hpg_blit(background, 0, 0, 131, 80, hpg_stdscreen, 0, 0);
+            hpg_blit(cursor, 0, 0, 16, 16, hpg_stdscreen, (35 * selection) + 10, 65);
         }
         else if (keyb_isLeft())
         {
             selection = extras;
+            hpg_clear();
+            hpg_blit(background, 0, 0, 131, 80, hpg_stdscreen, 0, 0);
+            hpg_blit(cursor, 0, 0, 16, 16, hpg_stdscreen, (35 * selection) + 10, 65);
         }
         else if (keyb_isRight())
         {
             selection = play;
+            hpg_clear();
+            hpg_blit(background, 0, 0, 131, 80, hpg_stdscreen, 0, 0);
+            hpg_blit(cursor, 0, 0, 16, 16, hpg_stdscreen, (35 * selection) + 10, 65);
         }
 
-
+        // User makes a selection with the "ENTER" key
+        if (keyb_isKeyPressed(0, 6))
+        {
+            sat_stack_push_string("Success");
+        }
 
 
     }
