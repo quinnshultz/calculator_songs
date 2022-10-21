@@ -123,16 +123,16 @@ int main()
             hpg_blit(background, 0, 0, 131, 80, hpg_stdscreen, 0, 0);
             hpg_blit(cursor, 0, 0, 16, 16, hpg_stdscreen, (35 * selection) + 10, 65);
         }
-        else if (keyb_isRight() && selection < 3)
+        else if (keyb_isLeft())
         {
-            selection++;
+            selection = extras;
             hpg_clear();
             hpg_blit(background, 0, 0, 131, 80, hpg_stdscreen, 0, 0);
             hpg_blit(cursor, 0, 0, 16, 16, hpg_stdscreen, (35 * selection) + 10, 65);
         }
-        else if (keyb_isLeft())
+        if (keyb_isRight() && selection < 3)
         {
-            selection = extras;
+            selection++;
             hpg_clear();
             hpg_blit(background, 0, 0, 131, 80, hpg_stdscreen, 0, 0);
             hpg_blit(cursor, 0, 0, 16, 16, hpg_stdscreen, (35 * selection) + 10, 65);
@@ -148,7 +148,21 @@ int main()
         // User makes a selection with the "ENTER" key
         if (keyb_isKeyPressed(0, 6))
         {
-            sat_stack_push_string("Success");
+            switch (selection) {
+                case play:
+                    sat_stack_push_string("Play Game");
+                    break;
+                case settings:
+                    sat_stack_push_string("Settings");
+                    break;
+                case about:
+                    sat_stack_push_string("About");
+                    break;
+                case extras:
+                    sat_stack_push_string("Extras");
+                    break;
+            }
+            
         }
 
 
