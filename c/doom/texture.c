@@ -6,7 +6,7 @@
 
 #include "texture.h"
 
-hpg_t* main_menu() 
+hpg_t* main_menu()
 {
     hpg_t* image = hpg_alloc_gray16_image(131, 80);
     hpg_clear_on(image);    // why u no give me a clean buffer?
@@ -75,10 +75,12 @@ hpg_t* main_menu()
     return image;
 }
 
-hpg_t* main_menu_cursor() {
+hpg_t* main_menu_cursor() 
+{
     hpg_t* image = hpg_alloc_gray16_image(16, 16);
     hpg_clear_on(image);
 
+    // Draw a pentagram
     hpg_draw_circle_on(image, 8, 8, 7);
 
     hpg_draw_line_on(image, 3, 1, 14, 10);
@@ -89,17 +91,51 @@ hpg_t* main_menu_cursor() {
     return image;
 }
 
+hpg_t* draw_hud()
+{
+    hpg_t* image = hpg_alloc_gray16_image(131, 80);
+    hpg_clear_on(image);
+
+    return image;
+}
+
+// TODO: Move to "doom.c"
 int main()
 {
     hpg_set_mode_gray16(0); //enter 16 colour, single buffered mode
     hpg_clear(); //clear the screen
+
+    enum menu_items{play,settings,about,extras};
+    enum menu_items selection = play;
 
     hpg_t* background = main_menu();
     hpg_t* cursor = main_menu_cursor();
 
     hpg_blit(background, 0, 0, 131, 80, hpg_stdscreen, 0, 0);
     hpg_blit(cursor, 0, 0, 16, 16, hpg_stdscreen, 10, 65);
-    while (!keyb_isON());
+    while (!keyb_isON())
+    {
+        if (keyb_isLeft() && selection > 0)
+        {
+            selection--;
+        }
+        else if (keyb_isRight() && selection < 3)
+        {
+            selection++;
+        }
+        else if (keyb_isLeft())
+        {
+            selection = extras;
+        }
+        else if (keyb_isRight())
+        {
+            selection = play;
+        }
+
+
+
+
+    }
     hpg_free_image(cursor);
     hpg_free_image(background);
     return 0;
