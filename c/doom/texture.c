@@ -100,6 +100,21 @@ hpg_t* draw_hud()
 }
 
 // TODO: Move to "doom.c"
+int play_game()
+{
+    sys_slowOff();  // Run the game at full system speed
+
+    hpg_set_mode_gray16(0);
+    hpg_clear();
+
+    // Main gameplay loop
+    while (!keyb_isON());
+
+    sys_slowOn();   // Save batteries in the main menu
+    return 0;
+}
+
+// TODO: Move to "doom.c"
 int main()
 {
     hpg_set_mode_gray16(0); //enter 16 colour, single buffered mode
@@ -150,7 +165,7 @@ int main()
         {
             switch (selection) {
                 case play:
-                    sat_stack_push_string("Play Game");
+                    play_game();
                     break;
                 case settings:
                     sat_stack_push_string("Settings");
