@@ -6,13 +6,19 @@
 
 #include "texture.h"
 
-// TODO: Move to "doom.c"
 int play_game()
 {
     sys_slowOff();  // Run the game at full system speed
 
     hpg_set_mode_gray16(0);
     hpg_clear();
+
+    // Initialize HUD with some hardcoded values (just for fun)
+    hpg_t* hh = health_hud(100);
+    hpg_t* ah = ammo_hud(20);
+
+    hpg_blit(hh, 0, 0, 16, 16, hpg_stdscreen, 0, 65);
+    hpg_blit(ah, 0, 0, 16, 16, hpg_stdscreen, 110, 65);
 
     // Main gameplay loop
     while (!keyb_isON());
@@ -21,10 +27,9 @@ int play_game()
     return 0;
 }
 
-// TODO: Move to "doom.c"
 int main()
 {
-    hpg_set_mode_gray16(0); //enter 16 colour, single buffered mode
+    hpg_set_mode_gray16(0);
     hpg_clear(); //clear the screen
 
     enum menu_items { play, settings, about, extras };

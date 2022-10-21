@@ -5,6 +5,7 @@
 
 hpg_t* main_menu();
 hpg_t* main_menu_cursor();
-hpg_t* draw_hud();
+hpg_t* health_hud(int health);
+hpg_t* ammo_hud(int ammo);
 
 #endif
