@@ -70,8 +70,22 @@ hpg_t* main_menu()
     hpg_draw_text_on(image, "Play Game", 5, 70);
     hpg_draw_text_on(image, "Settings", 45, 70);
     hpg_draw_text_on(image, "About", 80, 70);
-    hpg_draw_text_on(image, "Extras", 115, 70);
+    hpg_draw_text_on(image, "Extras", 105, 70);
 
+    return image;
+}
+
+hpg_t* main_menu_cursor() {
+    hpg_t* image = hpg_alloc_gray16_image(16, 16);
+    hpg_clear_on(image);
+
+    hpg_draw_circle_on(image, 8, 8, 7);
+
+    hpg_draw_line_on(image, 3, 1, 14, 10);
+    hpg_draw_line_on(image, 1, 10, 14, 10);
+    hpg_draw_line_on(image, 3, 1, 7, 15);
+    hpg_draw_line_on(image, 1, 10, 11, 1);
+    hpg_draw_line_on(image, 11, 1, 7, 15);
     return image;
 }
 
@@ -80,11 +94,13 @@ int main()
     hpg_set_mode_gray16(0); //enter 16 colour, single buffered mode
     hpg_clear(); //clear the screen
 
-    hpg_t* image = main_menu();
+    hpg_t* background = main_menu();
+    hpg_t* cursor = main_menu_cursor();
 
-    hpg_blit(image, 0, 0, 131, 80, hpg_stdscreen, 0, 0);
-    while (!keyb_isON()); //wait until ON pressed
-    
-    hpg_free_image(image);
+    hpg_blit(background, 0, 0, 131, 80, hpg_stdscreen, 0, 0);
+    hpg_blit(cursor, 0, 0, 16, 16, hpg_stdscreen, 10, 65);
+    while (!keyb_isON());
+    hpg_free_image(cursor);
+    hpg_free_image(background);
     return 0;
 }
