@@ -17,8 +17,8 @@ int play_game()
     hpg_t* hh = health_hud(100);
     hpg_t* ah = ammo_hud(20);
 
-    hpg_blit(hh, 0, 0, 16, 16, hpg_stdscreen, 0, 65);
-    hpg_blit(ah, 0, 0, 16, 16, hpg_stdscreen, 110, 65);
+    hpg_blit(hh, 0, 0, 25, 15, hpg_stdscreen, 0, 65);
+    hpg_blit(ah, 0, 0, 25, 15, hpg_stdscreen, 105, 65);
 
     // Main gameplay loop
     while (!keyb_isON());
