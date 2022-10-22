@@ -15,12 +15,12 @@ int play_game()
     hpg_clear();
     Player *p = player_new();
 
-    // Initialize HUD with some hardcoded values (just for fun)
+    // Initialize HUD
     hpg_t* hh = health_hud(player_health_get(p));
     hpg_t* ah = ammo_hud(player_ammo_get(p));
 
-    hpg_blit(hh, 0, 0, 25, 15, hpg_stdscreen, 0, 65);
-    hpg_blit(ah, 0, 0, 25, 15, hpg_stdscreen, 105, 65);
+    hpg_blit(hh, 0, 0, 27, 16, hpg_stdscreen, 0, 65);
+    hpg_blit(ah, 0, 0, 26, 16, hpg_stdscreen, 105, 65);
 
     // Main gameplay loop
     while (!keyb_isON());

@@ -93,12 +93,12 @@ hpg_t* main_menu_cursor()
 
 hpg_t* health_hud(int health)
 {
-    hpg_t* image = hpg_alloc_mono_image(25, 15);
+    hpg_t* image = hpg_alloc_mono_image(27, 16);
     char c[4];  // Buffer to hold the player's health
     sprintf(c, "%d", health);
     hpg_clear_on(image);
 
-    hpg_draw_rect_on(image, 0, 0, 25, 15);
+    hpg_draw_rect_on(image, 0, 0, 26, 15);
     hpg_draw_text_on(image, "Health", 2, 2);
     hpg_draw_text_on(image, c, 8, 8);
 
@@ -107,14 +107,14 @@ hpg_t* health_hud(int health)
 
 hpg_t* ammo_hud(int ammo)
 {
-    hpg_t* image = hpg_alloc_mono_image(25, 15);
+    hpg_t* image = hpg_alloc_mono_image(26, 16);
     char c[4];  // Buffer to hold the player's health
     sprintf(c, "%d", ammo);
     hpg_clear_on(image);
 
     hpg_draw_rect_on(image, 0, 0, 25, 15);
-    hpg_draw_text_on(image, "Ammo", 2, 2);
-    hpg_draw_text_on(image, c, 8, 8);
+    hpg_draw_text_on(image, "Ammo", 6, 2);
+    hpg_draw_text_on(image, c, 10, 8);
 
     return image;
 }
