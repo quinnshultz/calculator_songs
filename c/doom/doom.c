@@ -26,8 +26,9 @@ int play_game()
     while (!keyb_isON())
     {
         // If "I" (TOOL) key is pressed
-        if (keyb_isKeyPressed(5, 3))
+        if (keyb_isKeyPressed(6, 5))
         {
+            keyb_waitKeyPressed();
             ah = ammo_hud(fire(p));
             hpg_blit(ah, 0, 0, 26, 16, hpg_stdscreen, 105, 65);
         }
