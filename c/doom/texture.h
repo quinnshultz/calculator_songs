@@ -8,5 +8,6 @@ hpg_t* main_menu_cursor();
 hpg_t* health_hud(int health);
 hpg_t* ammo_hud(int ammo);
 hpg_t* player_pistol();
+hpg_t* player_pistol_firing();
 
 #endif

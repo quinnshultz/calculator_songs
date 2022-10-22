@@ -20,6 +20,7 @@ int play_game()
     hpg_t* ah = ammo_hud(player_ammo_get(p));
 
     hpg_t* player_image = player_pistol();
+    hpg_t* player_image_firing = player_pistol_firing();
 
     hpg_blit(hh, 0, 0, 27, 16, hpg_stdscreen, 0, 65);
     hpg_blit(ah, 0, 0, 26, 16, hpg_stdscreen, 105, 65);
@@ -35,12 +36,15 @@ int play_game()
             hpg_free_image(ah);
             ah = ammo_hud(fire(p));
             hpg_blit(ah, 0, 0, 26, 16, hpg_stdscreen, 105, 65);
+            hpg_blit(player_image_firing, 0, 0, 20, 20, hpg_stdscreen, 55, 60);
+            hpg_blit(player_image, 0, 0, 20, 20, hpg_stdscreen, 55, 60);
         }
     }
 
     hpg_free_image(hh);
     hpg_free_image(ah);
     hpg_free_image(player_image);
+    hpg_free_image(player_image_firing);
 
     free(p);
     sys_slowOn();   // Save batteries in the main menu

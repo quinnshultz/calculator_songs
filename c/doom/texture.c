@@ -124,16 +124,35 @@ hpg_t* player_pistol()
     hpg_t* image = hpg_alloc_gray16_image(20, 20);
     hpg_clear_on(image);
 
-    // Gun
-    hpg_set_color(image, HPG_COLOR_GRAY_14);
-    hpg_fill_rect_on(image, 8, 3, 10, 5);
-    hpg_fill_rect_on(image, 8, 0, 10, 2);
-    hpg_set_color(image, HPG_COLOR_GRAY_10);
-    hpg_fill_rect_on(image, 7, 2, 11, 6);
-
     // Hand
     hpg_set_color(image, HPG_COLOR_GRAY_6);
     hpg_fill_circle_on(image, 9, 7, 4);
+
+    // Gun
+    hpg_set_color(image, HPG_COLOR_GRAY_10);
+    hpg_fill_rect_on(image, 7, 2, 11, 6);
+    hpg_set_color(image, HPG_COLOR_GRAY_14);
+    hpg_fill_rect_on(image, 8, 0, 10, 2);
+    hpg_fill_rect_on(image, 8, 3, 10, 5);
+
+    return image;
+}
+
+hpg_t* player_pistol_firing()
+{
+    hpg_t* image = hpg_alloc_gray16_image(20, 20);
+    hpg_clear_on(image);
+
+    // Hand
+    hpg_set_color(image, HPG_COLOR_GRAY_6);
+    hpg_fill_circle_on(image, 9, 8, 4);
+
+    // Gun
+    hpg_set_color(image, HPG_COLOR_GRAY_10);
+    hpg_fill_rect_on(image, 7, 3, 11, 7);
+    hpg_set_color(image, HPG_COLOR_GRAY_14);
+    hpg_fill_rect_on(image, 8, 1, 10, 3);
+    hpg_fill_rect_on(image, 8, 4, 10, 6);
 
     return image;
 }
