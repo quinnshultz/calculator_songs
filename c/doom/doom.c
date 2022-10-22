@@ -17,7 +17,7 @@ int play_game()
 
     // Initialize HUD with some hardcoded values (just for fun)
     hpg_t* hh = health_hud(player_health_get(p));
-    hpg_t* ah = ammo_hud(20);
+    hpg_t* ah = ammo_hud(player_ammo_get(p));
 
     hpg_blit(hh, 0, 0, 25, 15, hpg_stdscreen, 0, 65);
     hpg_blit(ah, 0, 0, 25, 15, hpg_stdscreen, 105, 65);

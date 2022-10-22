@@ -2,16 +2,11 @@
 
 #include "player.h"
 
-struct Weapon
-{
-	int capacity;
-	int chambered;
-	int damage;
-};
-
 struct Player
 {
-	Weapon w;
+	int ammo;
+	int damage;
+
 	int health;
 };
 
@@ -19,10 +14,33 @@ extern Player* player_new()
 {
 	Player *p = malloc(sizeof(*p));
 	if (!p) sat_stack_push_string("malloc() failed");
-	// TODO: Player should start with a weapon
+	p->ammo = 20;
+	p->damage = 5;
+
 	p->health = 100;
 	return p;
 }
+
+extern void player_ammo_set(Player* p, int ammo)
+{
+	p->ammo = ammo;
+}
+
+extern int player_ammo_get(Player* p)
+{
+	return p->ammo;
+}
+
+extern void player_damage_set(Player* p, int damage)
+{
+	p->damage = damage;
+}
+
+extern int player_damage_get(Player* p)
+{
+	return p->damage;
+}
+
 
 extern void player_health_set(Player *p, int health)
 {
