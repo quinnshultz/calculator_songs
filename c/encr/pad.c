@@ -1,4 +1,4 @@
-// This program encrypts plaintext with RSA
+// This program pads a character string with ASCII codons
 // Written for hp48-50g by Quinn Shultz
 
 #include <hpgcc49.h>

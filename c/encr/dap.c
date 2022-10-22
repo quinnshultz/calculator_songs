@@ -1,4 +1,4 @@
-// This program decrypts ciphertext with RSA
+// This program takes ASCII padded codons and returns a character string
 // Written for hp48-50g by Quinn Shultz
 
 #include <hpgcc49.h>
