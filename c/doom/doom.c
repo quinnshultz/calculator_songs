@@ -5,6 +5,7 @@
 #include <hpgraphics.h>
 
 #include "texture.h"
+#include "player.h"
 
 int play_game()
 {
@@ -12,9 +13,10 @@ int play_game()
 
     hpg_set_mode_gray16(0);
     hpg_clear();
+    Player *p = player_new();
 
     // Initialize HUD with some hardcoded values (just for fun)
-    hpg_t* hh = health_hud(100);
+    hpg_t* hh = health_hud(player_health_get(p));
     hpg_t* ah = ammo_hud(20);
 
     hpg_blit(hh, 0, 0, 25, 15, hpg_stdscreen, 0, 65);
@@ -23,6 +25,7 @@ int play_game()
     // Main gameplay loop
     while (!keyb_isON());
 
+    free(p);
     sys_slowOn();   // Save batteries in the main menu
     return 0;
 }
