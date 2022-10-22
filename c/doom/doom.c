@@ -23,7 +23,15 @@ int play_game()
     hpg_blit(ah, 0, 0, 26, 16, hpg_stdscreen, 105, 65);
 
     // Main gameplay loop
-    while (!keyb_isON());
+    while (!keyb_isON())
+    {
+        // If "I" (TOOL) key is pressed
+        if (keyb_isKeyPressed(5, 3))
+        {
+            ah = ammo_hud(fire(p));
+            hpg_blit(ah, 0, 0, 26, 16, hpg_stdscreen, 105, 65);
+        }
+    }
 
     free(p);
     sys_slowOn();   // Save batteries in the main menu

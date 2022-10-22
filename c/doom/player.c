@@ -41,6 +41,14 @@ extern int player_damage_get(Player* p)
 	return p->damage;
 }
 
+extern int fire(Player* p)
+{
+	if (p->ammo > 0)
+	{
+		p->ammo--;
+	}
+	return p->ammo;
+}
 
 extern void player_health_set(Player *p, int health)
 {

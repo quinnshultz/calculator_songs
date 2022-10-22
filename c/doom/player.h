@@ -15,6 +15,8 @@ extern int player_ammo_get(Player *p);
 
 // Weapon damage
 extern void player_damage_set(Player *p, int damage);
-extern int player_health_get(Player *p);
+extern int player_damage_get(Player *p);
+
+extern int fire(Player* p);	// Returns remaining ammo
 
 #endif
