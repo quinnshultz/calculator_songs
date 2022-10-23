@@ -1,7 +1,7 @@
 # Doom
 A first person shooter for the HP 49 series.
 
-![alt text](https://raw.githubusercontent.com/quinnshultz/calculator_songs/main/c/doom/screenshot.jpg "A screenshot of the title menu.")
+![alt text](https://raw.githubusercontent.com/quinnshultz/calculator_songs/main/doom/screenshot.jpg "A screenshot of the title menu.")
 
 ## Description
 TI 83/84 owners can play Doom. Now HP 49/50 users can too!
