@@ -26,6 +26,9 @@ int play_game()
     hpg_blit(ah, 0, 0, 26, 16, hpg_stdscreen, 105, 65);
     hpg_blit(player_image, 0, 0, 20, 20, hpg_stdscreen, 55, 60);
 
+    int time_passed = 0;
+    int delta_time = 0;
+
     // Main gameplay loop
     while (!keyb_isON())
     {
@@ -39,6 +42,14 @@ int play_game()
             hpg_blit(player_image_firing, 0, 0, 20, 20, hpg_stdscreen, 55, 60);
             hpg_blit(player_image, 0, 0, 20, 20, hpg_stdscreen, 55, 60);
         }
+
+        // Update game logic once for every tick passed
+        while (time_passed >= 1) {
+            time_passed -= 1;
+        }
+
+        delta_time = sys_isRTCTick();
+        time_passed += delta_time;
     }
 
     hpg_free_image(hh);
