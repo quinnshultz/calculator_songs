@@ -43,6 +43,24 @@ int play_game()
             hpg_blit(player_image, 0, 0, 20, 20, hpg_stdscreen, 55, 60);
         }
 
+        // If "Up Arrow" key is pressed
+        if (keyb_isUp())
+        {
+            set_moving_forward(p, 1);
+        }
+        else if (keyb_isDown())
+        {
+            set_moving_backward(p, 1);
+        }
+        else if (keyb_isLeft())
+        {
+            set_moving_left(p, 1);
+        }
+        else if (keyb_isRight())
+        {
+            set_moving_right(p, 1);
+        }
+
         // Update game logic once for every tick passed
         while (time_passed >= 1) {
             time_passed -= 1;

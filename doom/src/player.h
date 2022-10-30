@@ -19,4 +19,13 @@ extern int player_damage_get(Player *p);
 
 extern int fire(Player* p);	// Returns remaining ammo
 
+extern void set_moving_forward(Player* p, int moving);
+extern int get_moving_forward(Player* p);
+extern void set_moving_backward(Player* p, int moving);
+extern int get_moving_backward(Player* p);
+extern void set_moving_left(Player* p, int moving);
+extern int get_moving_left(Player* p);
+extern void set_moving_right(Player* p, int moving);
+extern int get_moving_right(Player* p);
+
 #endif
