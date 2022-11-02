@@ -18,7 +18,7 @@ int isPadded(char string[])
 		int newInt = atoi(newChar);
 		if (newInt < 0)
 			return 0;
-		if (newInt > 1)
+		if (newInt > 255)
 			return 0;
 
 		// Leave an out
